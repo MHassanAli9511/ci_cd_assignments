@@ -14,7 +14,10 @@ jobs:
             node-version: '18'
 
         - name: Install dependencies
+          working-directory: ./task_1
           run: npm install
-          
+
+
         - name: Run tests
+          working-directory: ./task_1
           run: npm test
