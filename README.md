@@ -52,6 +52,8 @@ I used a simple Node.js application that displays:
 Hello, World!
 ```
 
+![Node.js Application Code](<screenshots/Node.js application code.png>)
+
 The application runs locally on port `3000`.
 
 ### Automated Testing
@@ -80,11 +82,15 @@ The workflow is configured to:
 5. Install the project's dependencies.
 6. Execute automated tests using `npm test`.
 
+![CI Workflow Configuration](<screenshots/CI workflow configuration.png>)
+
 GitHub Actions reports whether the tests pass or fail.
 
 ### Troubleshooting — ENOENT Error
 
 My initial pipeline failed during the dependency installation step.
+
+![Troubleshooting npm ENOENT Error](<screenshots/Troubleshooting npm ENOENT error.png>)
 
 The error was:
 
@@ -115,6 +121,8 @@ After committing and pushing the changes, the CI pipeline ran successfully.
 
 **Status: Completed**
 
+![Successful CI Run](<screenshots/Successful CI run.png>)
+
 The GitHub Actions CI workflow now automatically runs my Node.js tests whenever code is pushed to the repository.
 
 ---
@@ -137,6 +145,8 @@ The CD workflow focuses on building and publishing the Flask application's Docke
 ### Docker Publishing Pipeline
 
 I created a GitHub Actions workflow called `task_2.yml`.
+
+![Docker Image Publishing Workflow](<screenshots/Docker image publishing workflow.png>)
 
 The workflow performs the following actions:
 
@@ -179,6 +189,8 @@ This ensures Docker can locate the Dockerfile and application files.
 
 ### Troubleshooting — Dockerfile Not Found
 
+![First Failure Dockerfile Not Found](<screenshots/First failure Dockerfile not found.png>)
+
 My first CD workflow failed with an error similar to:
 
 ```text
@@ -197,6 +209,8 @@ I updated the Docker build configuration to target the Flask application's direc
 ### Troubleshooting — Build Context Not Found
 
 My second attempt also failed because Docker could not locate the specified build context.
+
+![Second Failure Build Context Not Found](<screenshots/Second failure build context not found.png>)
 
 I investigated the workflow configuration and repository directory structure.
 
@@ -219,6 +233,8 @@ https://hub.docker.com/r/mhassanali2/my-image
 ### Task 2 Result
 
 **Status: Completed**
+
+![Successful Docker Image Publishing Workflow](<screenshots/Successful Docker image publishing workflow.png>)
 
 My CD workflow now automatically builds and publishes the Flask Docker image whenever the workflow is triggered by a push.
 
