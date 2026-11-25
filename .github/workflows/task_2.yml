@@ -21,8 +21,7 @@ jobs:
             password: ${{ secrets.DOCKER_PASSWORD }}
 
         - name: Build and push Docker image
-          uses: docker/build-push-action@v7
-          with:
-            context: ./task_2/flask_app
-            push: true
-            tags: ${{ secrets.DOCKER_USERNAME }}/my-image:latest
+          run: | 
+            cd ./task_2/flask_app
+            docker buildx build --push --tag ${{ secrets.DOCKER_USERNAME }}/my-image:latest .
+
